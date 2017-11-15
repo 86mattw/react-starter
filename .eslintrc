@@ -1,0 +1,24 @@
+{
+  "extends": "airbnb",
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "jsx-a11y/label-has-for": [2, {
+      "components": ["Label"],
+      "required": {
+        "some": ["id", "nesting"]
+      },
+      "allowChildren": false
+    }],
+    "max-len": ["error", 120, 2, {
+      "ignoreUrls": true,
+      "ignoreComments": false,
+      "ignoreRegExpLiterals": true,
+      "ignoreStrings": true,
+      "ignoreTemplateLiterals": true
+    }],
+    "no-param-reassign": [2, { "props": false }],
+    "no-plusplus": [2, { "allowForLoopAfterthoughts": true }]
+  }
+}
