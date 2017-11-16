@@ -4,6 +4,7 @@
   "description": "A boilerplate React app",
   "main": "index.js",
   "scripts": {
+    "start": "webpack-dev-server --config config/webpack.config.js",
     "build": "webpack --config config/webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -32,6 +33,7 @@
     "eslint-plugin-react": "^7.4.0",
     "mocha": "^4.0.1",
     "sinon": "^4.1.2",
-    "webpack": "^3.8.1"
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.4"
   }
 }

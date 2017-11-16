@@ -13,7 +13,8 @@ const config = {
   output: {
     path: distDir,
     publicPath: '/',
-    filename: '[name].[chunkhash:8].js'
+    // filename: '[name].[chunkhash:8].js'
+    filename: '[name].js'
   },
   module: {
     rules: [{

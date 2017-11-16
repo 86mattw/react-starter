@@ -15,12 +15,14 @@ class App extends Component {
   }
 
   render() {
-    <div>
-      <h1>The App</h1>
-      <ul>
-        {this.renderList()}
-      </ul>
-    </div>
+    return (
+      <div>
+        <h1>The App</h1>
+        <ul>
+          {this.renderList()}
+        </ul>
+      </div>
+    );
   }
 }
 
