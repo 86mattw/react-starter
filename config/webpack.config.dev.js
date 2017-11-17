@@ -1,15 +1,14 @@
 
 /*
 todo:
-- handle sass
 - configure sass linting
 - configure eslint
-- extract css and make sure links are injected into template
 */
 
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const srcDir  = path.resolve(__dirname, '../src/js');
 const buildDir = path.resolve(__dirname, '../build');
@@ -32,6 +31,36 @@ const config = {
         use: [{
           loader: 'babel-loader'
         }]
+      },
+      {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                sourceMap: true
+              }
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                ident: 'postcss',
+                plugins: () => [
+                  require('autoprefixer')(),
+                  require('cssnano')()
+                ],
+                sourceMap: true
+              }
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true
+              }
+            }
+          ]
+        })
       }
     ]
   },
@@ -40,6 +69,9 @@ const config = {
   },
   devtool: 'cheap-module-source-map',
   plugins: [
+    new ExtractTextPlugin({
+      filename: 'static/[name].[contenthash:8].css'
+    }),
     new HtmlWebpackPlugin({
       inject: true,
       template: path.resolve(__dirname, '../index.html'),

@@ -5,6 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const devConfig = require('./webpack.config.dev');
 
 const config = merge(devConfig, {
+  devtool: 'none',
   plugins: [
     new CleanWebpackPlugin(['build'], {
       root: process.cwd()
