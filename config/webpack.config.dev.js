@@ -10,7 +10,6 @@ todo:
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const srcDir  = path.resolve(__dirname, '../src/js');
 const buildDir = path.resolve(__dirname, '../build');
@@ -23,7 +22,7 @@ const config = {
   output: {
     path: buildDir,
     publicPath: '/',
-    filename: '[name].[chunkhash:8].js'
+    filename: 'static/[name].[chunkhash:8].js'
   },
   module: {
     rules: [
@@ -41,9 +40,6 @@ const config = {
   },
   devtool: 'cheap-module-source-map',
   plugins: [
-    new CleanWebpackPlugin([buildDir], {
-      root: process.cwd()
-    }),
     new HtmlWebpackPlugin({
       inject: true,
       template: path.resolve(__dirname, '../index.html'),
