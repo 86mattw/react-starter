@@ -8,6 +8,6 @@ export const fetchList = () => {
 
   return {
     type: FETCH_LIST,
-    response
-  }
-}
+    response,
+  };
+};

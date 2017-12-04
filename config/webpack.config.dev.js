@@ -2,7 +2,6 @@
 /*
 todo:
 - configure sass linting
-- configure eslint
 */
 
 const path = require('path');
@@ -17,7 +16,7 @@ const buildDir = path.resolve(__dirname, '../build');
 const config = {
   context: srcDir,
   entry: {
-    app: './index.js',
+    app: './index',
   },
   output: {
     path: buildDir,

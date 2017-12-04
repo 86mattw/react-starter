@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { fetchList } from '../actions';
@@ -9,8 +10,8 @@ class App extends Component {
   }
 
   renderList() {
-    return this.props.list.map((item, idx) => (
-      <li key={idx}>{item}</li>
+    return this.props.list.map(item => (
+      <li key={item}>{item}</li>
     ));
   }
 
@@ -26,8 +27,13 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  list: state.list
+App.propTypes = {
+  fetchList: PropTypes.func.isRequired,
+  list: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
+
+const mapStateToProps = state => ({
+  list: state.list,
 });
 
 export default connect(mapStateToProps, { fetchList })(App);

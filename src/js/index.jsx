@@ -9,6 +9,6 @@ import '../sass/styles.scss';
 const store = configureStore();
 
 render(
-  <Root store={store} />, 
-  document.getElementById('root')
+  <Root store={store} />,
+  document.getElementById('root'),
 );
