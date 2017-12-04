@@ -7,6 +7,7 @@ todo:
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 
@@ -86,6 +87,7 @@ const config = {
       inject: true,
       template: path.resolve(__dirname, '../index.html'),
     }),
+    new StyleLintPlugin(),
   ],
 };
 
