@@ -5,6 +5,7 @@ import Root from './components/root';
 import configureStore from './configureStore';
 
 import '../sass/styles.scss';
+import './icons';
 
 const store = configureStore();
 

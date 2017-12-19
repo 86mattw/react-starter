@@ -73,6 +73,14 @@ const config = {
           ],
         }),
       },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'svg-sprite-loader',
+          },
+        ],
+      },
     ],
   },
   resolve: {

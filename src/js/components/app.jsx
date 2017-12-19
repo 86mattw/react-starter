@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 
 import { fetchList } from '../actions';
 
+import Icon from './icon';
+
 class App extends Component {
   componentDidMount() {
     this.props.fetchList();
@@ -22,6 +24,9 @@ class App extends Component {
         <ul>
           {this.renderList()}
         </ul>
+        <div>
+          <Icon glyph="git" />
+        </div>
       </div>
     );
   }
