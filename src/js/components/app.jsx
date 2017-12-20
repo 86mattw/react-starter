@@ -26,6 +26,7 @@ class App extends Component {
         </ul>
         <div>
           <Icon glyph="git" />
+          <Icon glyph="react" />
         </div>
       </div>
     );

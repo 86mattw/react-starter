@@ -1,12 +1,8 @@
 
-/*
-todo:
-- configure sass linting
-*/
-
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
@@ -78,6 +74,7 @@ const config = {
         use: [
           {
             loader: 'svg-sprite-loader',
+            options: { extract: true },
           },
         ],
       },
@@ -96,6 +93,9 @@ const config = {
       template: path.resolve(__dirname, '../index.html'),
     }),
     new StyleLintPlugin(),
+    new SpriteLoaderPlugin({
+      plainSprite: true,
+    }),
   ],
 };
 
